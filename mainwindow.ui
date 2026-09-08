@@ -1,0 +1,1754 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Xihu Hotel · Smart Terminal</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background-color: #050d1a;
+}
+QWidget {
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+QFrame { border: none; }
+QLabel { color: #ffffff; }
+QPushButton { border: none; outline: none; }
+QToolButton { border: none; outline: none; }
+QPushButton:hover, QToolButton:hover { opacity: 0.92; }
+QPushButton:pressed, QToolButton:pressed { opacity: 0.85; }
+
+/* ===== Sidebar Navigation ===== */
+QToolButton#navBtn {
+    background: transparent;
+    color: #8aa4c8;
+    font-size: 13px;
+    border-left: 3px solid transparent;
+    padding: 6px 0 6px 0;
+    min-width: 80px;
+    min-height: 76px;
+    icon-size: 32px 32px;
+}
+QToolButton#navBtn:hover {
+    color: #ffffff;
+    background: rgba(0, 212, 255, 0.08);
+}
+QToolButton#navBtn:checked {
+    color: #00d4ff;
+    background: rgba(0, 212, 255, 0.12);
+    border-left: 3px solid #00d4ff;
+}
+
+/* ===== Home Big Buttons ===== */
+QPushButton#bigBtn {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #0f2a52, stop:1 #081a33);
+    border-radius: 14px;
+    border: 1px solid #1a3a6b;
+    color: #ffffff;
+    font-size: 13px;
+    text-align: left;
+    padding-left: 22px;
+    icon-size: 28px 28px;
+}
+QPushButton#bigBtn:checked {
+    border: 1px solid #00d4ff;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #0a2245, stop:1 #061a36);
+}
+QPushButton#bigBtnDanger:checked {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #c0392b, stop:1 #8e1d1d);
+    border: 1px solid #e74c3c;
+}
+QPushButton#bigBtnSuccess:checked {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #27ae60, stop:1 #1e8449);
+    border: 1px solid #2ecc71;
+}
+QPushButton#bigBtnWarning:checked {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #f39c12, stop:1 #d35400);
+    border: 1px solid #f1c40f;
+}
+QPushButton#bigBtnScene:checked {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #8e44ad, stop:1 #6c3483);
+    border: 1px solid #a569bd;
+}
+QPushButton#bigBtnCall:checked {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #2980b9, stop:1 #1a5276);
+    border: 1px solid #3498db;
+}
+
+/* ===== Circle Buttons ===== */
+QPushButton#circleBtn {
+    background: rgba(0, 212, 255, 0.1);
+    border-radius: 20px;
+    color: #00d4ff;
+    font-size: 16px;
+    icon-size: 18px 18px;
+}
+QPushButton#circleBtnPrimary {
+    background: qradialgradient(cx:0.5, cy:0.5, radius:0.5, stop:0 #00d4ff, stop:1 #0077be);
+    border-radius: 24px;
+    color: #ffffff;
+    icon-size: 22px 22px;
+}
+
+/* ===== Action Buttons ===== */
+QPushButton#actionBtn {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #0f2a52, stop:1 #081a33);
+    border-radius: 12px;
+    border: 1px solid #1a3a6b;
+    color: #ffffff;
+    font-size: 13px;
+    text-align: center;
+    padding-left: 4px;
+    icon-size: 22px 22px;
+}
+QPushButton#actionBtnPrimary {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #00d4ff, stop:1 #0077be);
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: bold;
+    padding-left: 4px;
+    icon-size: 22px 22px;
+}
+
+/* ===== Sliders ===== */
+QSlider::groove:vertical {
+    border-radius: 8px;
+    width: 16px;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #1a3a6b, stop:1 #0d1f3d);
+}
+QSlider::handle:vertical {
+    height: 28px;
+    border-radius: 14px;
+    background: #00d4ff;
+    margin: -2px 0;
+}
+QSlider::sub-page:vertical {
+    border-radius: 8px;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #00d4ff, stop:1 #0077be);
+}
+
+/* ===== Section Icons (in card titles) ===== */
+QLabel#sectionIcon {
+    background: transparent;
+    icon-size: 18px 18px;
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_0">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="sidebar">
+      <property name="minimumSize">
+       <size><width>90</width><height>0</height></size>
+      </property>
+      <property name="maximumSize">
+       <size><width>90</width><height>16777215</height></size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame#sidebar {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #0a1a33, stop:1 #051020);
+    border-right: 1px solid #132b4d;
+}</string>
+      </property>
+      <layout class="QVBoxLayout" name="sidebarLayout">
+       <property name="spacing">
+        <number>6</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>20</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>20</number>
+       </property>
+       <item alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="logoLabel">
+         <property name="minimumSize"><size><width>40</width><height>40</height></size></property>
+         <property name="maximumSize"><size><width>40</width><height>40</height></size></property>
+         <property name="styleSheet">
+          <string notr="true">background: qradialgradient(cx:0.5, cy:0.5, radius:0.5, stop:0 #00d4ff, stop:1 #0077be);
+border-radius: 20px;
+color: #ffffff;
+font-size: 18px;
+font-weight: bold;</string>
+         </property>
+         <property name="text">
+          <string>西</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_1">
+         <property name="orientation"><enum>Qt::Vertical</enum></property>
+         <property name="sizeHint" stdset="0"><size><width>20</width><height>30</height></size></property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QToolButton" name="navHome">
+         <property name="objectName"><string>navBtn</string></property>
+         <property name="minimumSize"><size><width>0</width><height>76</height></size></property>
+         <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonTextUnderIcon</enum>
+         </property>
+         <property name="text">
+          <string>首页</string>
+         </property>
+         <property name="checkable"><bool>true</bool></property>
+         <property name="checked"><bool>true</bool></property>
+         <property name="autoExclusive"><bool>true</bool></property>
+         <property name="icon">
+          <iconset resource="icons.qrc">
+           <normaloff>:/icons/home.png</normaloff>
+          </iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="navRoom">
+         <property name="objectName"><string>navBtn</string></property>
+         <property name="minimumSize"><size><width>0</width><height>76</height></size></property>
+         <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonTextUnderIcon</enum>
+         </property>
+         <property name="text">
+          <string>客房</string>
+         </property>
+         <property name="checkable"><bool>true</bool></property>
+         <property name="autoExclusive"><bool>true</bool></property>
+         <property name="icon">
+          <iconset resource="icons.qrc">
+           <normaloff>:/icons/bed.png</normaloff>
+          </iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="navCheckin">
+         <property name="objectName"><string>navBtn</string></property>
+         <property name="minimumSize"><size><width>0</width><height>76</height></size></property>
+         <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonTextUnderIcon</enum>
+         </property>
+         <property name="text">
+          <string>入住</string>
+         </property>
+         <property name="checkable"><bool>true</bool></property>
+         <property name="autoExclusive"><bool>true</bool></property>
+         <property name="icon">
+          <iconset resource="icons.qrc">
+           <normaloff>:/icons/key.png</normaloff>
+          </iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="navService">
+         <property name="objectName"><string>navBtn</string></property>
+         <property name="minimumSize"><size><width>0</width><height>76</height></size></property>
+         <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonTextUnderIcon</enum>
+         </property>
+         <property name="text">
+          <string>服务</string>
+         </property>
+         <property name="checkable"><bool>true</bool></property>
+         <property name="autoExclusive"><bool>true</bool></property>
+         <property name="icon">
+          <iconset resource="icons.qrc">
+           <normaloff>:/icons/bell.png</normaloff>
+          </iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="navSettings">
+         <property name="objectName"><string>navBtn</string></property>
+         <property name="minimumSize"><size><width>0</width><height>76</height></size></property>
+         <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonTextUnderIcon</enum>
+         </property>
+         <property name="text">
+          <string>设置</string>
+         </property>
+         <property name="checkable"><bool>true</bool></property>
+         <property name="autoExclusive"><bool>true</bool></property>
+         <property name="icon">
+          <iconset resource="icons.qrc">
+           <normaloff>:/icons/gear.png</normaloff>
+          </iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation"><enum>Qt::Vertical</enum></property>
+         <property name="sizeHint" stdset="0"><size><width>20</width><height>40</height></size></property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="rightLayout">
+      <property name="spacing"><number>0</number></property>
+      <property name="leftMargin"><number>0</number></property>
+      <property name="topMargin"><number>0</number></property>
+      <property name="rightMargin"><number>0</number></property>
+      <property name="bottomMargin"><number>0</number></property>
+      <item>
+       <widget class="QFrame" name="topBar">
+        <property name="minimumSize"><size><width>0</width><height>50</height></size></property>
+        <property name="maximumSize"><size><width>16777215</width><height>50</height></size></property>
+        <property name="styleSheet">
+         <string notr="true">QFrame#topBar {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #0c1d38, stop:1 #081426);
+    border-bottom: 1px solid #132b4d;
+}
+QLabel#topTitle { color: #ffffff; font-size: 17px; font-weight: bold; }
+QLabel#topSubTitle { color: #8aa4c8; font-size: 11px; }
+QLabel#topInfo { color: #8aa4c8; font-size: 10px; }
+QLabel#topTime { color: #00d4ff; font-size: 18px; font-weight: bold; }
+QPushButton#weatherIconBtn {
+    background: transparent;
+    icon-size: 22px 22px;
+}
+QPushButton#tempIconBtn {
+    background: transparent;
+    icon-size: 22px 22px;
+}
+QPushButton#wifiIconBtn {
+    background: transparent;
+    icon-size: 20px 20px;
+}
+QPushButton#sysIconBtn {
+    background: transparent;
+    icon-size: 20px 20px;
+}</string>
+        </property>
+        <layout class="QHBoxLayout" name="topBarLayout">
+         <property name="leftMargin"><number>15</number></property>
+         <property name="rightMargin"><number>15</number></property>
+         <item>
+          <layout class="QVBoxLayout" name="titleLayout">
+           <property name="spacing"><number>2</number></property>
+           <item>
+            <widget class="QLabel" name="topTitle">
+             <property name="text">
+              <string>尊敬的先生/女士，欢迎入住西湖山庄酒店</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="topSubTitle">
+             <property name="text">
+              <string>用心服务 · 让旅途更美好</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item><spacer name="horizontalSpacer_1"><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
+         <item>
+          <widget class="QPushButton" name="weatherIconBtn">
+           <property name="icon">
+            <iconset resource="icons.qrc">
+             <normaloff>:/icons/weather.png</normaloff>
+            </iconset>
+           </property>
+           <property name="flat"><bool>true</bool></property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="weatherLabel">
+           <property name="styleSheet">
+            <string notr="true">color: #ffffff; font-size: 12px;</string>
+           </property>
+           <property name="text">
+            <string>多云 杭州</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="tempLabel">
+           <property name="styleSheet">
+            <string notr="true">color: #00d4ff; font-size: 20px; font-weight: bold;</string>
+           </property>
+           <property name="text">
+            <string>26°C</string>
+           </property>
+          </widget>
+         </item>
+         <item><spacer name="horizontalSpacer_2"><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="sizeHint" stdset="0"><size><width>20</width><height>20</height></size></property></spacer></item>
+         <item>
+          <layout class="QVBoxLayout" name="timeLayout">
+           <property name="spacing"><number>0</number></property>
+           <item alignment="Qt::AlignRight">
+            <widget class="QLabel" name="topTime">
+             <property name="text">
+              <string>17:45</string>
+             </property>
+            </widget>
+           </item>
+           <item alignment="Qt::AlignRight">
+            <widget class="QLabel" name="topDate">
+             <property name="styleSheet">
+              <string notr="true">color: #8aa4c8; font-size: 12px;</string>
+             </property>
+             <property name="text">
+              <string>2024年9月3日 星期二</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item><spacer name="horizontalSpacer_3"><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="sizeHint" stdset="0"><size><width>10</width><height>20</height></size></property></spacer></item>
+         <item>
+          <widget class="QLabel" name="roomLabel">
+           <property name="styleSheet">
+            <string notr="true">background: rgba(0, 212, 255, 0.12);
+border-radius: 12px;
+color: #00d4ff;
+font-size: 13px;
+padding: 6px 14px;</string>
+           </property>
+           <property name="text">
+            <string>客房 812</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QStackedWidget" name="stackedWidget">
+        <property name="currentIndex"><number>0</number></property>
+        <!-- Page 1: Home -->
+        <widget class="QWidget" name="pageHome">
+         <layout class="QVBoxLayout" name="homeLayout">
+          <property name="spacing"><number>10</number></property>
+          <property name="leftMargin"><number>10</number></property>
+          <property name="topMargin"><number>10</number></property>
+          <property name="rightMargin"><number>10</number></property>
+          <property name="bottomMargin"><number>10</number></property>
+          <item>
+           <layout class="QHBoxLayout" name="homeRow1">
+            <property name="spacing"><number>10</number></property>
+            <item>
+             <widget class="QFrame" name="roomCard">
+              <property name="minimumSize"><size><width>0</width><height>180</height></size></property>
+              <property name="styleSheet">
+               <string notr="true">QFrame#roomCard {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #0f2a52, stop:1 #081a33);
+    border-radius: 16px;
+    border: 1px solid #1a3a6b;
+}
+QLabel#roomCardTitle { color: #ffffff; font-size: 12px; font-weight: bold; }
+QLabel#roomCardSub { color: #8aa4c8; font-size: 11px; }</string>
+              </property>
+              <layout class="QVBoxLayout" name="roomCardLayout">
+               <property name="spacing"><number>12</number></property>
+               <item>
+                <layout class="QHBoxLayout" name="roomTitleRow">
+                 <property name="spacing"><number>8</number></property>
+                 <item>
+                  <widget class="QLabel" name="roomCardIcon">
+                   <property name="minimumSize"><size><width>22</width><height>22</height></size></property>
+                   <property name="maximumSize"><size><width>22</width><height>22</height></size></property>
+                   <property name="styleSheet">
+                    <string notr="true">background: transparent;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="roomCardTitle">
+                   <property name="text">
+                    <string>客房环境</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QLabel" name="roomCardSub">
+                 <property name="text">
+                  <string>实时监测 · 健康入住</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QFrame" name="roomImage">
+                 <property name="minimumSize"><size><width>0</width><height>85</height></size></property>
+                 <property name="styleSheet">
+                  <string notr="true">background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #1a3a6b, stop:0.5 #0f2a52, stop:1 #081a33);
+border-radius: 12px;</string>
+                 </property>
+                 <layout class="QHBoxLayout" name="roomImageLayout">
+                  <item alignment="Qt::AlignCenter">
+                   <widget class="QLabel" name="roomImageText">
+                    <property name="styleSheet">
+                     <string notr="true">color: #8aa4c8; font-size: 14px; background: transparent;</string>
+                    </property>
+                    <property name="text">
+                     <string>舒适客房示意图</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="sensorLayout">
+                 <property name="spacing"><number>8</number></property>
+                 <item>
+                  <widget class="QFrame" name="sensorTemp">
+                   <property name="minimumSize"><size><width>50</width><height>50</height></size></property>
+                   <property name="styleSheet">
+                    <string notr="true">background: rgba(0, 212, 255, 0.08);
+border-radius: 10px;</string>
+                   </property>
+                   <layout class="QVBoxLayout" name="sensorTempLayout">
+                    <property name="spacing"><number>2</number></property>
+                    <item alignment="Qt::AlignCenter">
+                     <widget class="QLabel" name="sensorTempIcon">
+                      <property name="minimumSize"><size><width>20</width><height>20</height></size></property>
+                      <property name="maximumSize"><size><width>20</width><height>20</height></size></property>
+                      <property name="styleSheet">
+                       <string notr="true">background: transparent;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item alignment="Qt::AlignCenter">
+                     <widget class="QLabel" name="sensorTempVal">
+                      <property name="styleSheet">
+                       <string notr="true">color: #00d4ff; font-size: 12px; font-weight: bold;</string>
+                      </property>
+                      <property name="text">
+                       <string>24°</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item alignment="Qt::AlignCenter">
+                     <widget class="QLabel" name="sensorTempLabel">
+                      <property name="styleSheet">
+                       <string notr="true">color: #8aa4c8; font-size: 11px;</string>
+                      </property>
+                      <property name="text">
+                       <string>温度</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="sensorHumi">
+                   <property name="minimumSize"><size><width>50</width><height>50</height></size></property>
+                   <property name="styleSheet">
+                    <string notr="true">background: rgba(0, 212, 255, 0.08);
+border-radius: 10px;</string>
+                   </property>
+                   <layout class="QVBoxLayout" name="sensorHumiLayout">
+                    <property name="spacing"><number>2</number></property>
+                    <item alignment="Qt::AlignCenter">
+                     <widget class="QLabel" name="sensorHumiIcon">
+                      <property name="minimumSize"><size><width>20</width><height>20</height></size></property>
+                      <property name="maximumSize"><size><width>20</width><height>20</height></size></property>
+                      <property name="styleSheet">
+                       <string notr="true">background: transparent;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item alignment="Qt::AlignCenter">
+                     <widget class="QLabel" name="sensorHumiVal">
+                      <property name="styleSheet">
+                       <string notr="true">color: #00d4ff; font-size: 12px; font-weight: bold;</string>
+                      </property>
+                      <property name="text">
+                       <string>55%</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item alignment="Qt::AlignCenter">
+                     <widget class="QLabel" name="sensorHumiLabel">
+                      <property name="styleSheet">
+                       <string notr="true">color: #8aa4c8; font-size: 11px;</string>
+                      </property>
+                      <property name="text">
+                       <string>湿度</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="sensorCo2">
+                   <property name="minimumSize"><size><width>50</width><height>50</height></size></property>
+                   <property name="styleSheet">
+                    <string notr="true">background: rgba(0, 212, 255, 0.08);
+border-radius: 10px;</string>
+                   </property>
+                   <layout class="QVBoxLayout" name="sensorCo2Layout">
+                    <property name="spacing"><number>2</number></property>
+                    <item alignment="Qt::AlignCenter">
+                     <widget class="QLabel" name="sensorCo2Icon">
+                      <property name="minimumSize"><size><width>20</width><height>20</height></size></property>
+                      <property name="maximumSize"><size><width>20</width><height>20</height></size></property>
+                      <property name="styleSheet">
+                       <string notr="true">background: transparent;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item alignment="Qt::AlignCenter">
+                     <widget class="QLabel" name="sensorCo2Val">
+                      <property name="styleSheet">
+                       <string notr="true">color: #00d4ff; font-size: 12px; font-weight: bold;</string>
+                      </property>
+                      <property name="text">
+                       <string>420</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item alignment="Qt::AlignCenter">
+                     <widget class="QLabel" name="sensorCo2Label">
+                      <property name="styleSheet">
+                       <string notr="true">color: #8aa4c8; font-size: 11px;</string>
+                      </property>
+                      <property name="text">
+                       <string>CO₂</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="sensorPm">
+                   <property name="minimumSize"><size><width>50</width><height>50</height></size></property>
+                   <property name="styleSheet">
+                    <string notr="true">background: rgba(0, 212, 255, 0.08);
+border-radius: 10px;</string>
+                   </property>
+                   <layout class="QVBoxLayout" name="sensorPmLayout">
+                    <property name="spacing"><number>2</number></property>
+                    <item alignment="Qt::AlignCenter">
+                     <widget class="QLabel" name="sensorPmIcon">
+                      <property name="minimumSize"><size><width>20</width><height>20</height></size></property>
+                      <property name="maximumSize"><size><width>20</width><height>20</height></size></property>
+                      <property name="styleSheet">
+                       <string notr="true">background: transparent;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item alignment="Qt::AlignCenter">
+                     <widget class="QLabel" name="sensorPmVal">
+                      <property name="styleSheet">
+                       <string notr="true">color: #00d4ff; font-size: 12px; font-weight: bold;</string>
+                      </property>
+                      <property name="text">
+                       <string>35</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item alignment="Qt::AlignCenter">
+                     <widget class="QLabel" name="sensorPmLabel">
+                      <property name="styleSheet">
+                       <string notr="true">color: #8aa4c8; font-size: 11px;</string>
+                      </property>
+                      <property name="text">
+                       <string>PM2.5</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="sensorHcho">
+                   <property name="minimumSize"><size><width>50</width><height>50</height></size></property>
+                   <property name="styleSheet">
+                    <string notr="true">background: rgba(0, 212, 255, 0.08);
+border-radius: 10px;</string>
+                   </property>
+                   <layout class="QVBoxLayout" name="sensorHchoLayout">
+                    <property name="spacing"><number>2</number></property>
+                    <item alignment="Qt::AlignCenter">
+                     <widget class="QLabel" name="sensorHchoIcon">
+                      <property name="minimumSize"><size><width>20</width><height>20</height></size></property>
+                      <property name="maximumSize"><size><width>20</width><height>20</height></size></property>
+                      <property name="styleSheet">
+                       <string notr="true">background: transparent;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item alignment="Qt::AlignCenter">
+                     <widget class="QLabel" name="sensorHchoVal">
+                      <property name="styleSheet">
+                       <string notr="true">color: #00d4ff; font-size: 12px; font-weight: bold;</string>
+                      </property>
+                      <property name="text">
+                       <string>0.03</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item alignment="Qt::AlignCenter">
+                     <widget class="QLabel" name="sensorHchoLabel">
+                      <property name="styleSheet">
+                       <string notr="true">color: #8aa4c8; font-size: 11px;</string>
+                      </property>
+                      <property name="text">
+                       <string>HCHO</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="sensorIon">
+                   <property name="minimumSize"><size><width>50</width><height>50</height></size></property>
+                   <property name="styleSheet">
+                    <string notr="true">background: rgba(0, 212, 255, 0.08);
+border-radius: 10px;</string>
+                   </property>
+                   <layout class="QVBoxLayout" name="sensorIonLayout">
+                    <property name="spacing"><number>2</number></property>
+                    <item alignment="Qt::AlignCenter">
+                     <widget class="QLabel" name="sensorIonIcon">
+                      <property name="minimumSize"><size><width>20</width><height>20</height></size></property>
+                      <property name="maximumSize"><size><width>20</width><height>20</height></size></property>
+                      <property name="styleSheet">
+                       <string notr="true">background: transparent;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item alignment="Qt::AlignCenter">
+                     <widget class="QLabel" name="sensorIonVal">
+                      <property name="styleSheet">
+                       <string notr="true">color: #00d4ff; font-size: 12px; font-weight: bold;</string>
+                      </property>
+                      <property name="text">
+                       <string>优</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item alignment="Qt::AlignCenter">
+                     <widget class="QLabel" name="sensorIonLabel">
+                      <property name="styleSheet">
+                       <string notr="true">color: #8aa4c8; font-size: 11px;</string>
+                      </property>
+                      <property name="text">
+                       <string>负氧离子</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="musicCard">
+              <property name="minimumSize"><size><width>170</width><height>180</height></size></property>
+              <property name="maximumSize"><size><width>190</width><height>16777215</height></size></property>
+              <property name="styleSheet">
+               <string notr="true">QFrame#musicCard {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #0f2a52, stop:1 #081a33);
+    border-radius: 16px;
+    border: 1px solid #1a3a6b;
+}
+QLabel#musicTitle { color: #ffffff; font-size: 13px; font-weight: bold; }</string>
+              </property>
+              <layout class="QVBoxLayout" name="musicCardLayout">
+               <item>
+                <layout class="QHBoxLayout" name="musicTitleRow">
+                 <property name="spacing"><number>8</number></property>
+                 <item>
+                  <widget class="QLabel" name="musicTitleIcon">
+                   <property name="minimumSize"><size><width>20</width><height>20</height></size></property>
+                   <property name="maximumSize"><size><width>20</width><height>20</height></size></property>
+                   <property name="styleSheet">
+                    <string notr="true">background: transparent;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="musicTitle">
+                   <property name="text">
+                    <string>音乐</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item alignment="Qt::AlignCenter">
+                <widget class="QLabel" name="musicIcon">
+                 <property name="minimumSize"><size><width>60</width><height>60</height></size></property>
+                 <property name="maximumSize"><size><width>60</width><height>60</height></size></property>
+                 <property name="styleSheet">
+                  <string notr="true">background: rgba(0, 212, 255, 0.1);
+border: 2px solid #00d4ff;
+border-radius: 30px;
+icon-size: 30px 30px;</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item alignment="Qt::AlignCenter">
+                <widget class="QLabel" name="musicSong">
+                 <property name="styleSheet">
+                  <string notr="true">color: #ffffff; font-size: 14px;</string>
+                 </property>
+                 <property name="text">
+                  <string>暂无歌曲</string>
+                 </property>
+                </widget>
+               </item>
+               <item alignment="Qt::AlignCenter">
+                <widget class="QLabel" name="musicHint">
+                 <property name="styleSheet">
+                  <string notr="true">color: #8aa4c8; font-size: 12px;</string>
+                 </property>
+                 <property name="text">
+                  <string>请选择播放</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="musicControls">
+                 <property name="spacing"><number>12</number></property>
+                 <item>
+                  <widget class="QPushButton" name="btnPrev">
+                   <property name="objectName"><string>circleBtn</string></property>
+                   <property name="minimumSize"><size><width>32</width><height>32</height></size></property>
+                   <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+                   <property name="icon">
+                    <iconset resource="icons.qrc">
+                     <normaloff>:/icons/prev.png</normaloff>
+                    </iconset>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="btnPlay">
+                   <property name="objectName"><string>circleBtnPrimary</string></property>
+                   <property name="minimumSize"><size><width>40</width><height>40</height></size></property>
+                   <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+                   <property name="icon">
+                    <iconset resource="icons.qrc">
+                     <normaloff>:/icons/play.png</normaloff>
+                    </iconset>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="btnNext">
+                   <property name="objectName"><string>circleBtn</string></property>
+                   <property name="minimumSize"><size><width>32</width><height>32</height></size></property>
+                   <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+                   <property name="icon">
+                    <iconset resource="icons.qrc">
+                     <normaloff>:/icons/next.png</normaloff>
+                    </iconset>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="acCard">
+              <property name="minimumSize"><size><width>140</width><height>180</height></size></property>
+              <property name="maximumSize"><size><width>160</width><height>16777215</height></size></property>
+              <property name="styleSheet">
+               <string notr="true">QFrame#acCard {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #0f2a52, stop:1 #081a33);
+    border-radius: 16px;
+    border: 1px solid #1a3a6b;
+}
+QLabel#acTitle { color: #ffffff; font-size: 13px; font-weight: bold; }
+QLabel#acTempBig { color: #00d4ff; font-size: 22px; font-weight: bold; }</string>
+              </property>
+              <layout class="QVBoxLayout" name="acCardLayout">
+               <item>
+                <layout class="QHBoxLayout" name="acTitleRow">
+                 <property name="spacing"><number>8</number></property>
+                 <item>
+                  <widget class="QLabel" name="acTitleIcon">
+                   <property name="minimumSize"><size><width>20</width><height>20</height></size></property>
+                   <property name="maximumSize"><size><width>20</width><height>20</height></size></property>
+                   <property name="styleSheet">
+                    <string notr="true">background: transparent;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="acTitle">
+                   <property name="text">
+                    <string>空调</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item alignment="Qt::AlignCenter">
+                <widget class="QLabel" name="acTempBig">
+                 <property name="text">
+                  <string>26°C</string>
+                 </property>
+                </widget>
+               </item>
+               <item alignment="Qt::AlignCenter">
+                <widget class="QLabel" name="acMode">
+                 <property name="styleSheet">
+                  <string notr="true">color: #8aa4c8; font-size: 12px;</string>
+                 </property>
+                 <property name="text">
+                  <string>制冷 · 中风</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="acSliderLayout">
+                 <item>
+                  <widget class="QPushButton" name="btnAcMinus">
+                   <property name="objectName"><string>circleBtn</string></property>
+                   <property name="minimumSize"><size><width>36</width><height>36</height></size></property>
+                   <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+                   <property name="icon">
+                    <iconset resource="icons.qrc">
+                     <normaloff>:/icons/minus.png</normaloff>
+                    </iconset>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSlider" name="acSlider">
+                   <property name="orientation"><enum>Qt::Vertical</enum></property>
+                   <property name="minimum"><number>16</number></property>
+                   <property name="maximum"><number>30</number></property>
+                   <property name="value"><number>26</number></property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="btnAcPlus">
+                   <property name="objectName"><string>circleBtn</string></property>
+                   <property name="minimumSize"><size><width>36</width><height>36</height></size></property>
+                   <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+                   <property name="icon">
+                    <iconset resource="icons.qrc">
+                     <normaloff>:/icons/plus.png</normaloff>
+                    </iconset>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="homeRow2">
+            <property name="spacing"><number>10</number></property>
+            <item>
+             <widget class="QPushButton" name="btnDnd">
+              <property name="objectName"><string>bigBtn</string></property>
+              <property name="minimumSize"><size><width>0</width><height>55</height></size></property>
+              <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+              <property name="text">
+               <string>请勿打扰</string>
+              </property>
+              <property name="checkable"><bool>true</bool></property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/dnd.png</normaloff>
+               </iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnClean">
+              <property name="objectName"><string>bigBtn</string></property>
+              <property name="minimumSize"><size><width>0</width><height>55</height></size></property>
+              <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+              <property name="text">
+               <string>请即打扫</string>
+              </property>
+              <property name="checkable"><bool>true</bool></property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/broom.png</normaloff>
+               </iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnDoor">
+              <property name="objectName"><string>bigBtn</string></property>
+              <property name="minimumSize"><size><width>0</width><height>55</height></size></property>
+              <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+              <property name="text">
+               <string>长按开门</string>
+              </property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/door.png</normaloff>
+               </iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnLight">
+              <property name="objectName"><string>bigBtn</string></property>
+              <property name="minimumSize"><size><width>0</width><height>55</height></size></property>
+              <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+              <property name="text">
+               <string>一键亮灯</string>
+              </property>
+              <property name="checkable"><bool>true</bool></property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/bulb.png</normaloff>
+               </iconset>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="homeRow3">
+            <property name="spacing"><number>10</number></property>
+            <item>
+             <widget class="QPushButton" name="btnScene">
+              <property name="objectName"><string>bigBtn</string></property>
+              <property name="minimumSize"><size><width>0</width><height>55</height></size></property>
+              <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+              <property name="text">
+               <string>场景模式</string>
+              </property>
+              <property name="checkable"><bool>true</bool></property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/scene.png</normaloff>
+               </iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnCall">
+              <property name="objectName"><string>bigBtn</string></property>
+              <property name="minimumSize"><size><width>0</width><height>55</height></size></property>
+              <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+              <property name="text">
+               <string>呼叫前台</string>
+              </property>
+              <property name="checkable"><bool>true</bool></property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/phone.png</normaloff>
+               </iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnService">
+              <property name="objectName"><string>bigBtn</string></property>
+              <property name="minimumSize"><size><width>0</width><height>55</height></size></property>
+              <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+              <property name="text">
+               <string>酒店服务</string>
+              </property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/bell.png</normaloff>
+               </iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnInfo">
+              <property name="objectName"><string>bigBtn</string></property>
+              <property name="minimumSize"><size><width>0</width><height>55</height></size></property>
+              <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+              <property name="text">
+               <string>信息中心</string>
+              </property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/info.png</normaloff>
+               </iconset>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <!-- Page 2: Check-in -->
+        <widget class="QWidget" name="pageCheckin">
+         <layout class="QVBoxLayout" name="checkinLayout">
+          <property name="spacing"><number>10</number></property>
+          <property name="leftMargin"><number>10</number></property>
+          <property name="topMargin"><number>10</number></property>
+          <property name="rightMargin"><number>10</number></property>
+          <property name="bottomMargin"><number>10</number></property>
+          <item>
+           <layout class="QHBoxLayout" name="checkinTitleRow">
+            <property name="spacing"><number>10</number></property>
+            <item>
+             <widget class="QLabel" name="checkinTitleIcon">
+              <property name="minimumSize"><size><width>26</width><height>26</height></size></property>
+              <property name="maximumSize"><size><width>26</width><height>26</height></size></property>
+              <property name="styleSheet">
+               <string notr="true">background: transparent;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="checkinHeader">
+              <property name="styleSheet">
+               <string notr="true">color: #ffffff; font-size: 16px; font-weight: bold;</string>
+              </property>
+              <property name="text">
+               <string>身份验证 / 入住办理</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="checkinRow1">
+            <property name="spacing"><number>10</number></property>
+            <item>
+             <widget class="QFrame" name="faceCard">
+              <property name="minimumSize"><size><width>260</width><height>260</height></size></property>
+              <property name="styleSheet">
+               <string notr="true">QFrame#faceCard {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #0f2a52, stop:1 #081a33);
+    border-radius: 16px;
+    border: 1px solid #1a3a6b;
+}
+QLabel#faceTitle { color: #ffffff; font-size: 13px; font-weight: bold; }</string>
+              </property>
+              <layout class="QVBoxLayout" name="faceCardLayout">
+               <item>
+                <layout class="QHBoxLayout" name="faceTitleRow">
+                 <property name="spacing"><number>8</number></property>
+                 <item>
+                  <widget class="QLabel" name="faceTitleIcon">
+                   <property name="minimumSize"><size><width>20</width><height>20</height></size></property>
+                   <property name="maximumSize"><size><width>20</width><height>20</height></size></property>
+                   <property name="styleSheet">
+                    <string notr="true">background: transparent;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="faceTitle">
+                   <property name="text">
+                    <string>人脸识别</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QFrame" name="facePreview">
+                 <property name="minimumSize"><size><width>0</width><height>170</height></size></property>
+                 <property name="styleSheet">
+                  <string notr="true">background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #1a3a6b, stop:0.5 #0f2a52, stop:1 #081a33);
+border-radius: 12px;</string>
+                 </property>
+                 <layout class="QHBoxLayout" name="facePreviewLayout">
+                  <item alignment="Qt::AlignCenter">
+                   <widget class="QLabel" name="faceHint">
+                    <property name="styleSheet">
+                     <string notr="true">color: #8aa4c8; font-size: 14px; background: transparent;</string>
+                    </property>
+                    <property name="text">
+                     <string>请正对摄像头，保持面部在取景框内</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item alignment="Qt::AlignCenter">
+                <widget class="QLabel" name="faceStatus">
+                 <property name="styleSheet">
+                  <string notr="true">background: rgba(39, 174, 96, 0.15);
+color: #2ecc71;
+border-radius: 12px;
+padding: 6px 16px;
+font-size: 13px;</string>
+                 </property>
+                 <property name="text">
+                  <string>识别通过</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="idCard">
+              <property name="minimumSize"><size><width>260</width><height>260</height></size></property>
+              <property name="styleSheet">
+               <string notr="true">QFrame#idCard {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #0f2a52, stop:1 #081a33);
+    border-radius: 16px;
+    border: 1px solid #1a3a6b;
+}
+QLabel#idTitle { color: #ffffff; font-size: 13px; font-weight: bold; }
+QLabel#idLabel { color: #8aa4c8; font-size: 11px; }
+QLabel#idValue { color: #ffffff; font-size: 14px; }</string>
+              </property>
+              <layout class="QVBoxLayout" name="idCardLayout">
+               <item>
+                <layout class="QHBoxLayout" name="idTitleRow">
+                 <property name="spacing"><number>8</number></property>
+                 <item>
+                  <widget class="QLabel" name="idTitleIcon">
+                   <property name="minimumSize"><size><width>20</width><height>20</height></size></property>
+                   <property name="maximumSize"><size><width>20</width><height>20</height></size></property>
+                   <property name="styleSheet">
+                    <string notr="true">background: transparent;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="idTitle">
+                   <property name="text">
+                    <string>身份证读取</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QFrame" name="idImage">
+                 <property name="minimumSize"><size><width>0</width><height>100</height></size></property>
+                 <property name="styleSheet">
+                  <string notr="true">background: #f5f5f5;
+border-radius: 8px;</string>
+                 </property>
+                 <layout class="QHBoxLayout" name="idImageLayout">
+                  <item alignment="Qt::AlignCenter">
+                   <widget class="QLabel" name="idImageText">
+                    <property name="styleSheet">
+                     <string notr="true">color: #333333; font-size: 18px; font-weight: bold; background: transparent;</string>
+                    </property>
+                    <property name="text">
+                     <string>中华人民共和国居民身份证</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <layout class="QGridLayout" name="idGrid">
+                 <property name="spacing"><number>8</number></property>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="idLabelName">
+                   <property name="text">
+                    <string>姓 名</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QLabel" name="idValueName">
+                   <property name="text">
+                    <string>张 雨</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QLabel" name="idLabelId">
+                   <property name="text">
+                    <string>证件号</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QLabel" name="idValueId">
+                   <property name="text">
+                    <string>11010519900307****</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QLabel" name="idLabelGender">
+                   <property name="text">
+                    <string>性 别</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QLabel" name="idValueGender">
+                   <property name="text">
+                    <string>女</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="0">
+                  <widget class="QLabel" name="idLabelBirth">
+                   <property name="text">
+                    <string>出生日期</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="1">
+                  <widget class="QLabel" name="idValueBirth">
+                   <property name="text">
+                    <string>1990年03月07日</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="0">
+                  <widget class="QLabel" name="idLabelAddr">
+                   <property name="text">
+                    <string>住 址</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="1">
+                  <widget class="QLabel" name="idValueAddr">
+                   <property name="text">
+                    <string>北京市朝阳区**** ****</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="checkinResultLayout">
+              <property name="spacing"><number>10</number></property>
+              <item>
+               <widget class="QFrame" name="resultCard">
+                <property name="minimumSize"><size><width>240</width><height>130</height></size></property>
+                <property name="styleSheet">
+                 <string notr="true">QFrame#resultCard {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #0f2a52, stop:1 #081a33);
+    border-radius: 16px;
+    border: 1px solid #1a3a6b;
+}
+QLabel#resultTitle { color: #ffffff; font-size: 13px; font-weight: bold; }</string>
+                </property>
+                <layout class="QVBoxLayout" name="resultCardLayout">
+                 <item>
+                  <layout class="QHBoxLayout" name="resultTitleRow">
+                   <property name="spacing"><number>8</number></property>
+                   <item>
+                    <widget class="QLabel" name="resultTitleIcon">
+                     <property name="minimumSize"><size><width>20</width><height>20</height></size></property>
+                     <property name="maximumSize"><size><width>20</width><height>20</height></size></property>
+                     <property name="styleSheet">
+                      <string notr="true">background: transparent;</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="resultTitle">
+                     <property name="text">
+                      <string>核验结果</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="resultItem1">
+                   <property name="styleSheet">
+                    <string notr="true">color: #2ecc71; font-size: 13px;</string>
+                   </property>
+                   <property name="text">
+                    <string>✔ 身份证信息与人脸比对成功</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="resultItem2">
+                   <property name="styleSheet">
+                    <string notr="true">color: #2ecc71; font-size: 13px;</string>
+                   </property>
+                   <property name="text">
+                    <string>✔ 公安网核验通过</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="resultItem3">
+                   <property name="styleSheet">
+                    <string notr="true">color: #2ecc71; font-size: 13px;</string>
+                   </property>
+                   <property name="text">
+                    <string>✔ 未发现不良记录</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="similarityLayout">
+                   <item>
+                    <widget class="QLabel" name="similarityLabel">
+                     <property name="styleSheet">
+                      <string notr="true">color: #8aa4c8; font-size: 13px;</string>
+                     </property>
+                     <property name="text">
+                      <string>人脸相似度</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="similarityValue">
+                     <property name="styleSheet">
+                      <string notr="true">color: #00d4ff; font-size: 20px; font-weight: bold;</string>
+                     </property>
+                     <property name="text">
+                      <string>98%</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="roomInfoCard">
+                <property name="minimumSize"><size><width>240</width><height>130</height></size></property>
+                <property name="styleSheet">
+                 <string notr="true">QFrame#roomInfoCard {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #0f2a52, stop:1 #081a33);
+    border-radius: 16px;
+    border: 1px solid #1a3a6b;
+}
+QLabel#roomInfoTitle { color: #ffffff; font-size: 13px; font-weight: bold; }
+QLabel#roomInfoLabel { color: #8aa4c8; font-size: 11px; }
+QLabel#roomInfoValue { color: #ffffff; font-size: 14px; }</string>
+                </property>
+                <layout class="QVBoxLayout" name="roomInfoCardLayout">
+                 <item>
+                  <layout class="QHBoxLayout" name="roomInfoTitleRow">
+                   <property name="spacing"><number>8</number></property>
+                   <item>
+                    <widget class="QLabel" name="roomInfoTitleIcon">
+                     <property name="minimumSize"><size><width>20</width><height>20</height></size></property>
+                     <property name="maximumSize"><size><width>20</width><height>20</height></size></property>
+                     <property name="styleSheet">
+                      <string notr="true">background: transparent;</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="roomInfoTitle">
+                     <property name="text">
+                      <string>入住信息</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QGridLayout" name="roomInfoGrid">
+                   <property name="spacing"><number>8</number></property>
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="roomInfoLabelType">
+                     <property name="text">
+                      <string>房 型</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QLabel" name="roomInfoValueType">
+                     <property name="text">
+                      <string>高级大床房</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="roomInfoLabelNo">
+                     <property name="text">
+                      <string>房 号</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QLabel" name="roomInfoValueNo">
+                     <property name="text">
+                      <string>1208</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="roomInfoLabelDays">
+                     <property name="text">
+                      <string>入住天数</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QLabel" name="roomInfoValueDays">
+                     <property name="text">
+                      <string>2 天 (2024.10.26 - 2024.10.28)</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="0">
+                    <widget class="QLabel" name="roomInfoLabelFee">
+                     <property name="text">
+                      <string>押金/房费</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QLabel" name="roomInfoValueFee">
+                     <property name="text">
+                      <string>¥1,200 (在线支付)</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="checkinActions">
+            <property name="spacing"><number>10</number></property>
+            <item>
+             <widget class="QPushButton" name="btnReadId">
+              <property name="objectName"><string>actionBtn</string></property>
+              <property name="minimumSize"><size><width>0</width><height>40</height></size></property>
+              <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+              <property name="text">
+               <string>读取身份证</string>
+              </property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/id-card.png</normaloff>
+               </iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnStartFace">
+              <property name="objectName"><string>actionBtn</string></property>
+              <property name="minimumSize"><size><width>0</width><height>40</height></size></property>
+              <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+              <property name="text">
+               <string>开始人脸识别</string>
+              </property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/face.png</normaloff>
+               </iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnConfirmCheckin">
+              <property name="objectName"><string>actionBtnPrimary</string></property>
+              <property name="minimumSize"><size><width>0</width><height>40</height></size></property>
+              <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+              <property name="text">
+               <string>确认入住</string>
+              </property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/check.png</normaloff>
+               </iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnPrint">
+              <property name="objectName"><string>actionBtn</string></property>
+              <property name="minimumSize"><size><width>0</width><height>40</height></size></property>
+              <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+              <property name="text">
+               <string>打印凭条</string>
+              </property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/printer.png</normaloff>
+               </iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnCardAuth">
+              <property name="objectName"><string>actionBtn</string></property>
+              <property name="minimumSize"><size><width>0</width><height>40</height></size></property>
+              <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+              <property name="text">
+               <string>发卡 / 授权门锁</string>
+              </property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/lock.png</normaloff>
+               </iconset>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <!-- Page 3: Settings -->
+        <widget class="QWidget" name="pageSettings">
+         <layout class="QVBoxLayout" name="settingsLayout">
+          <property name="spacing"><number>16</number></property>
+          <property name="leftMargin"><number>20</number></property>
+          <property name="topMargin"><number>20</number></property>
+          <property name="rightMargin"><number>20</number></property>
+          <property name="bottomMargin"><number>20</number></property>
+          <item>
+           <widget class="QLabel" name="settingsHeader">
+            <property name="styleSheet">
+             <string notr="true">color: #00d4ff; font-size: 20px; font-weight: bold;</string>
+            </property>
+            <property name="text">
+             <string>系统设置</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="themeCard">
+            <property name="styleSheet">
+             <string notr="true">QFrame#themeCard {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #0f2a52, stop:1 #081a33);
+    border-radius: 16px;
+    border: 1px solid #1a3a6b;
+}
+QLabel#themeCardTitle { color: #ffffff; font-size: 16px; font-weight: bold; }
+QLabel#themeCardSub { color: #8aa4c8; font-size: 12px; }</string>
+            </property>
+            <layout class="QVBoxLayout" name="themeCardLayout">
+             <property name="spacing"><number>12</number></property>
+             <item>
+              <widget class="QLabel" name="themeCardTitle">
+               <property name="styleSheet">
+                <string notr="true">color: #ffffff; font-size: 16px; font-weight: bold;</string>
+               </property>
+               <property name="text">
+                <string>显示主题</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="themeCardSub">
+               <property name="styleSheet">
+                <string notr="true">color: #8aa4c8; font-size: 12px;</string>
+               </property>
+               <property name="text">
+                <string>选择深色或浅色主题</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="themeBtnLayout">
+               <property name="spacing"><number>16</number></property>
+               <item>
+                <widget class="QPushButton" name="btnDarkTheme">
+                 <property name="objectName"><string>actionBtnPrimary</string></property>
+                 <property name="minimumSize"><size><width>0</width><height>48</height></size></property>
+                 <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+                 <property name="text"><string>深色模式</string></property>
+                 <property name="icon">
+                  <iconset resource="icons.qrc">
+                   <normaloff>:/icons/moon.png</normaloff>
+                  </iconset>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="btnLightTheme">
+                 <property name="objectName"><string>actionBtn</string></property>
+                 <property name="minimumSize"><size><width>0</width><height>48</height></size></property>
+                 <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+                 <property name="text"><string>浅色模式</string></property>
+                 <property name="icon">
+                  <iconset resource="icons.qrc">
+                   <normaloff>:/icons/sun.png</normaloff>
+                  </iconset>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <spacer name="settingsSpacer">
+            <property name="orientation"><enum>Qt::Vertical</enum></property>
+            <property name="sizeHint" stdset="0"><size><width>20</width><height>40</height></size></property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

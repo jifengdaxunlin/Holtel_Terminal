@@ -1,0 +1,83 @@
+<RCC>
+  <qresource prefix="/icons">
+    <!-- App branding: keep vector source and Windows .ico -->
+    <file>icons/app-icon.svg</file>
+    <file>icons/app-icon.ico</file>
+
+    <!-- PNG render of every SVG icon. QtSvg is unreliable on the ARM board,
+         so the application loads these PNG resources instead. -->
+    <file>icons/app-icon.png</file>
+    <file>icons/home.png</file>
+    <file>icons/home-light.png</file>
+    <file>icons/bed.png</file>
+    <file>icons/bed-light.png</file>
+    <file>icons/key.png</file>
+    <file>icons/key-light.png</file>
+    <file>icons/bell.png</file>
+    <file>icons/bell-light.png</file>
+    <file>icons/gear.png</file>
+    <file>icons/gear-light.png</file>
+    <file>icons/moon.png</file>
+    <file>icons/moon-light.png</file>
+    <file>icons/sun.png</file>
+    <file>icons/sun-light.png</file>
+    <file>icons/music.png</file>
+    <file>icons/snowflake.png</file>
+    <file>icons/bulb.png</file>
+    <file>icons/door.png</file>
+    <file>icons/broom.png</file>
+    <file>icons/dnd.png</file>
+    <file>icons/scene.png</file>
+    <file>icons/phone.png</file>
+    <file>icons/info.png</file>
+    <file>icons/play.png</file>
+    <file>icons/prev.png</file>
+    <file>icons/next.png</file>
+    <file>icons/minus.png</file>
+    <file>icons/plus.png</file>
+    <file>icons/weather.png</file>
+    <file>icons/thermometer.png</file>
+    <file>icons/droplet.png</file>
+    <file>icons/dust.png</file>
+    <file>icons/flask.png</file>
+    <file>icons/leaf.png</file>
+    <file>icons/co2.png</file>
+    <file>icons/id-card.png</file>
+    <file>icons/face.png</file>
+    <file>icons/printer.png</file>
+    <file>icons/lock.png</file>
+    <file>icons/check.png</file>
+    <!-- Original SVG files are kept as editable source. -->
+    <file>icons/home.svg</file>
+    <file>icons/bed.svg</file>
+    <file>icons/key.svg</file>
+    <file>icons/bell.svg</file>
+    <file>icons/gear.svg</file>
+    <file>icons/music.svg</file>
+    <file>icons/snowflake.svg</file>
+    <file>icons/bulb.svg</file>
+    <file>icons/door.svg</file>
+    <file>icons/broom.svg</file>
+    <file>icons/dnd.svg</file>
+    <file>icons/scene.svg</file>
+    <file>icons/phone.svg</file>
+    <file>icons/info.svg</file>
+    <file>icons/play.svg</file>
+    <file>icons/prev.svg</file>
+    <file>icons/next.svg</file>
+    <file>icons/minus.svg</file>
+    <file>icons/plus.svg</file>
+    <file>icons/weather.svg</file>
+    <file>icons/thermometer.svg</file>
+    <file>icons/droplet.svg</file>
+    <file>icons/dust.svg</file>
+    <file>icons/flask.svg</file>
+    <file>icons/leaf.svg</file>
+    <file>icons/co2.svg</file>
+    <file>icons/id-card.svg</file>
+    <file>icons/face.svg</file>
+    <file>icons/printer.svg</file>
+    <file>icons/lock.svg</file>
+    <file>icons/check.svg</file>
+  </qresource>
+</RCC>

@@ -1,0 +1,15 @@
+# Qt Creator 本地用户配置
+*.pro.user
+*.pro.user.*
+
+# 编译产物 / 构建目录
+build-*/
+*.o
+moc_*
+ui_*.h
+qrc_*.cpp
+Makefile
+
+# Python
+__pycache__/
+*.pyc
