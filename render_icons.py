@@ -23,8 +23,10 @@ ICON_DIR = Path(__file__).parent / "icons"
 OUT_DIR = ICON_DIR  # write png next to svg
 PNG_SIZE = 64  # high enough for all current icon sizes (28..44px)
 
-# Buttons that need a light-theme variant with a dark stroke.
-NAV_ICONS = {"home", "bed", "key", "bell", "gear", "moon", "sun"}
+# All content icons get a dark-stroke variant so they remain visible
+# on the light theme's pale card backgrounds.
+SKIP_LIGHT = {"app-icon"}
+NAV_ICONS = {svg.stem for svg in ICON_DIR.glob("*.svg") if svg.stem not in SKIP_LIGHT}
 
 
 def render_drawing(drawing, out_path: Path, size: int) -> bool:

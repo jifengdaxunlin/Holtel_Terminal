@@ -1,0 +1,19 @@
+{
+    "//": "HotelTerminal LBPH 人脸模型配置 —— 与 trainer.yml 一起放在程序目录（板端 /opt/Qt_program/）",
+    "//model": "OpenCV 训练脚本产出的模型文件；程序启动时自动加载，原文件永不被改写",
+    "model": "trainer.yml",
+    "//img_width/img_height": "训练时的图像尺寸。OpenCV 官方人脸识别 demo 用 92x112；若识别率异常可试着改这里",
+    "img_width": 92,
+    "img_height": 112,
+    "//crop_scale": "人脸框裁剪系数。训练图是脸部特写时用 1.0；若训练图带较多背景/头发，可调大到 1.1~1.3",
+    "crop_scale": 1.0,
+    "//verify_distance": "判定通过的最大卡方距离（越小越像）。本模型内两个模板互距约 33.6；默认取 65，可用板端实拍数据微调：同一人应明显小于它，不同人应明显大于它",
+    "verify_distance": 65.0,
+    "//names": "标签(tarin.yml 里 labels 的值) -> 姓名。留空则界面显示「贵宾 <标签>」",
+    "names": {
+        "1363479013": "贵宾甲",
+        "1363479021": "贵宾乙"
+    },
+    "//templates": "本程序内新登记的人脸会追加到这里（原始 trainer.yml 不动）；也可手工粘贴 16384 维直方图",
+    "templates": []
+}
