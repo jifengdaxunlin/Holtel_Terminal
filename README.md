@@ -1,4 +1,4 @@
-# 西湖酒店 · 智能终端（Xihu Hotel Smart Terminal）
+# 酒店 · 智能终端（Xihu Hotel Smart Terminal）
 
 基于 Qt 5 的酒店客房智能控制终端，运行于 7 英寸 ARM 触控面板（X6818），提供房间状态、环境控制、入住登记、云服务接入等一体化操作界面。
 
